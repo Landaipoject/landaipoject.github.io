@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generator Text to Speech</title>
+    <!-- Memuat Tailwind CSS dari CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Menggunakan font Inter -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1a1a2e; /* Latar belakang gelap seperti di gambar */
+        }
+        /* Custom gradient for the button to match the image's style */
+        .btn-gradient {
+            background-image: linear-gradient(to right, #209977, #137e61); /* Teal/Hijau Tosca */
+            transition: all 0.2s;
+        }
+        .btn-gradient:hover {
+            background-image: linear-gradient(to right, #137e61, #209977);
+            box-shadow: 0 4px 15px rgba(32, 153, 119, 0.4);
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex flex-col items-center justify-center p-4">
+
+    <!-- Kontainer Utama / Kartu -->
+    <div class="w-full max-w-md bg-[#24243e] p-6 sm:p-8 rounded-xl shadow-2xl border border-[#3e3e60]">
+
+        <h1 class="text-2xl sm:text-3xl font-bold text-center mb-2 text-[#9fa8da]">
+            Generator Text to Speech
+        </h1>
+        <p class="text-sm text-center text-gray-400 mb-6">
+            Ubah teks menjadi audio dengan berbagai pilihan suara natural.
+        </p>
+
+        <!-- Area Textarea Tiruan yang sudah dirapikan -->
+        <div class="bg-[#1f1f38] p-4 rounded-lg border border-[#3e3e60] mb-6">
+            <label for="text-input" class="block text-sm font-medium mb-1 text-gray-300">
+                Teks untuk diubah menjadi suara:
+            </label>
+            <div id="text-input" class="h-24 w-full bg-[#1f1f38] text-white p-2 rounded-md border border-gray-600 text-sm overflow-auto">
+                Tuliskan teks Anda di sini untuk diubah menjadi suara natural berkualitas tinggi.
+            </div>
+            <div class="text-right text-xs text-gray-500 mt-1">0 / 3000 Karakter</div>
+        </div>
+
+        <!-- Tombol Utama untuk Direct ke Link -->
+        <a id="redirect-button" href="https://ai.studio/apps/drive/1MH16CvOfxEu1LDRSlbryy96WXte9LUTf" target="_blank"
+            class="w-full text-center py-3 px-4 rounded-xl font-semibold uppercase tracking-wider
+                   shadow-lg btn-gradient focus:outline-none focus:ring-4 focus:ring-[#209977] focus:ring-opacity-50
+                   transform hover:scale-[1.02] active:scale-[0.98] transition-transform duration-150">
+            Akses Tools Generator Sekarang!
+        </a>
+
+        <!-- Section Kelebihan Aplikasi Tiruan (Diperbarui dengan Deskripsi Rinci) -->
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold text-center mb-6 text-[#9fa8da]">Kelebihan Tools</h2>
+            <div class="space-y-6">
+                
+                <!-- Benefit 1: Beragam Pilihan Suara -->
+                <div class="flex items-start">
+                    <!-- Ikon Mikrofon/Suara -->
+                    <svg class="w-6 h-6 mt-1 mr-3 flex-shrink-0 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0h6m-3-3v3m-3-3v3m-3-3v3m-3-3v3"></path></svg>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Beragam Pilihan Suara</h3>
+                        <p class="text-sm text-gray-400">Pilih dari berbagai suara natural untuk menemukan yang paling cocok untuk proyek Anda.</p>
+                    </div>
+                </div>
+
+                <!-- Benefit 2: Kustomisasi Gaya Bicara -->
+                <div class="flex items-start">
+                    <!-- Ikon Pengaturan/Kustomisasi -->
+                    <svg class="w-6 h-6 mt-1 mr-3 flex-shrink-0 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.152A1.5 1.5 0 0112 3.518m-1.451-.366A1.5 1.5 0 0112 3.518m-1.451-.366L6 17.5l5.049-.366L12 18l.951-1.148L18 17.5l-5.049-.366"></path></svg>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Kustomisasi Gaya Bicara</h3>
+                        <p class="text-sm text-gray-400">Tambahkan emosi dan gaya unik pada audio Anda dengan instruksi sederhana.</p>
+                    </div>
+                </div>
+
+                <!-- Benefit 3: Output Audio Berkualitas Tinggi -->
+                <div class="flex items-start">
+                    <!-- Ikon Kualitas/Audio File -->
+                    <svg class="w-6 h-6 mt-1 mr-3 flex-shrink-0 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v16l-12 3zm-3-1v-4l-3-1v4l3 1zm-3-7v-4l-3-1v4l3 1zm9 8v-4l-3-1v4l3 1z"></path></svg>
+                    <div>
+                        <h3 class="font-semibold text-lg text-white">Output Audio Berkualitas Tinggi</h3>
+                        <p class="text-sm text-gray-400">Hasilkan file audio WAV yang jernih dan siap pakai untuk berbagai keperluan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script for a little fun effect (optional) -->
+    <script>
+        document.getElementById('redirect-button').addEventListener('click', function() {
+            console.log('Redirecting to the Text to Speech Generator link...');
+            // In a real scenario, you might want to track this click event.
+        });
+    </script>
+</body>
+</html>
